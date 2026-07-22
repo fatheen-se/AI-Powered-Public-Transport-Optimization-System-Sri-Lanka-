@@ -1,0 +1,41 @@
+name: CI Testing Pipeline
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  backend-tests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12'
+    - name: Install Dependencies
+      run: |
+        cd apps/backend
+        pip install -r requirements.txt
+    - name: Run Pytest
+      run: |
+        cd apps/backend
+        pytest --nomigrations
+        
+  frontend-e2e-tests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+    - name: Install Dependencies
+      run: |
+        cd apps/frontend
+        npm install
+    - name: Run Cypress E2E
+      run: |
+        cd apps/frontend
+        npm run test:e2e
