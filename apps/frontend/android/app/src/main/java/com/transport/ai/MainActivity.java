@@ -1,0 +1,5 @@
+package com.transport.ai;
+
+import com.getcapacitor.BridgeActivity;
+
+public class MainActivity extends BridgeActivity {}
