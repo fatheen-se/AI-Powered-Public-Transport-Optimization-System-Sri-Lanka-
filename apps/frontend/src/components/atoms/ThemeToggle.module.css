@@ -1,0 +1,23 @@
+.toggleBtn {
+  background: var(--input-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all var(--transition-fast);
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.toggleBtn:hover {
+  background: var(--sidebar-hover);
+  border-color: var(--accent-blue);
+  box-shadow: var(--shadow-glow-blue);
+}
