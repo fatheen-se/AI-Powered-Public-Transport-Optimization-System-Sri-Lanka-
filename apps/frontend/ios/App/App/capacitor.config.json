@@ -1,0 +1,6 @@
+{
+	"appId": "com.transport.ai",
+	"appName": "transport-app",
+	"webDir": "dist",
+	"packageClassList": []
+}
