@@ -1,0 +1,134 @@
+.page {
+  display: flex;
+  height: calc(100vh - 64px);
+  gap: 24px;
+}
+
+.sidebar {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  gap: 20px;
+}
+
+.sidebar h2 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+
+.resultsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.routeCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  padding: 16px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.routeCard:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.routeCard.selected {
+  border-color: var(--accent-blue);
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.routeBadge {
+  display: inline-block;
+  background: var(--accent-blue);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.routeCard p {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.noResults {
+  color: var(--text-secondary);
+  text-align: center;
+  padding: 24px 0;
+}
+
+.mapArea {
+  flex: 1;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.etaPanel {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 20;
+  background: rgba(17, 24, 39, 0.85);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  padding: 16px;
+  border-radius: var(--radius-lg);
+  color: white;
+  min-width: 250px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+}
+
+.etaPanel h3 {
+  font-size: 1rem;
+  margin-bottom: 12px;
+  color: var(--accent-blue);
+}
+
+.etaStats {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.etaStats > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.statLabel {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.statValue {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.Clear {
+  color: var(--accent-emerald);
+}
+
+.ModerateTraffic {
+  color: #F59E0B; /* amber-500 */
+}
+
+.HeavyTraffic {
+  color: #EF4444; /* red-500 */
+}
+
+.SevereTraffic {
+  color: #B91C1C; /* red-700 */
+}
