@@ -1,0 +1,354 @@
+.driverContainer {
+  padding: 24px;
+  max-width: 100%;
+  min-height: 100vh;
+  background: var(--gradient-primary);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.header {
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.statusIndicator {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 24px;
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--accent-blue);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.statusIndicator.live {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--accent-emerald);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+/* ─── Card Grid ─── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  padding: 24px;
+  text-align: left;
+}
+
+.card h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+/* ─── Assignment Details ─── */
+.assignmentDetails p {
+  margin: 10px 0;
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.assignmentDetails p strong {
+  color: var(--text-primary);
+}
+
+/* ─── Big Buttons ─── */
+.bigButton {
+  width: 100%;
+  height: 72px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-lg);
+  margin-top: 20px;
+  background: var(--gradient-accent);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.35);
+}
+
+.bigButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+}
+
+.bigButton:active {
+  transform: scale(0.98);
+}
+
+.bigButton.stopBtn {
+  background: var(--gradient-crimson);
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.35);
+}
+
+.bigButton.stopBtn:hover {
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.5);
+}
+
+/* ─── Diagnostics List ─── */
+.diagList {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.diagList li {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--glass-border);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.diagList li:last-child {
+  border-bottom: none;
+}
+
+.diagList li strong {
+  color: var(--text-primary);
+}
+
+/* ─── Capacity Selector ─── */
+.capacitySelector {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  gap: 8px;
+}
+
+.capacityBtn {
+  flex: 1;
+  padding: 14px 0;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border);
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.capacityBtn:hover {
+  border-color: var(--accent-blue);
+  background: var(--glass-hover);
+}
+
+.capacityBtn.active {
+  background: var(--sidebar-active);
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+}
+
+.coordinates {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 15px;
+  padding: 8px 12px;
+  background: var(--input-bg);
+  border-radius: var(--radius-sm);
+}
+
+/* ─── Earnings Card ─── */
+.earningsAmount {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--accent-emerald);
+  margin: 8px 0 16px;
+}
+
+.earningsBreakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.earningsRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  padding: 6px 0;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.earningsRow:last-child {
+  border-bottom: none;
+}
+
+.earningsRow span:last-child {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* ─── Trip History ─── */
+.tripHistoryList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tripHistoryItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background: var(--input-bg);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border);
+}
+
+.tripHistoryItem:hover {
+  border-color: var(--card-border-accent);
+}
+
+.tripInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tripRoute {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.tripMeta {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.tripPassengers {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--accent-blue);
+}
+
+/* ─── Schedule List ─── */
+.scheduleList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.scheduleItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 12px;
+  background: var(--input-bg);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--accent-blue);
+}
+
+.scheduleTime {
+  font-weight: 700;
+  color: var(--accent-blue);
+  min-width: 70px;
+  font-size: 0.9rem;
+}
+
+.scheduleRoute {
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* ─── Messages List ─── */
+.messagesList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.messageItem {
+  padding: 12px;
+  background: var(--input-bg);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border);
+}
+
+.messageItem.urgent {
+  border-left: 3px solid var(--accent-crimson);
+}
+
+.messageItem.info {
+  border-left: 3px solid var(--accent-blue);
+}
+
+.messageHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.messageSender {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.messageTime {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.messageBody {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* ─── Performance Score ─── */
+.performanceGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.perfStat {
+  text-align: center;
+  padding: 16px 8px;
+  background: var(--input-bg);
+  border-radius: var(--radius-md);
+}
+
+.perfValue {
+  font-size: 1.5rem;
+  font-weight: 800;
+  display: block;
+}
+
+.perfLabel {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+  display: block;
+}
