@@ -1,0 +1,379 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 64px);
+  gap: 24px;
+}
+
+.header h1 {
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+  font-weight: 800;
+}
+
+.header p {
+  color: var(--text-secondary);
+}
+
+/* ─── Widget Grid ─── */
+.topWidgets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 20px;
+  position: relative;
+  z-index: 10;
+}
+
+/* ─── Wallet Card ─── */
+.walletCard {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.walletInfo {
+  margin-bottom: 20px;
+}
+
+.walletInfo h3 {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.balance {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent-emerald), #34d399);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-top: 8px;
+}
+
+.walletSubtext {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: block;
+  margin-top: 4px;
+}
+
+/* ─── Notifications ─── */
+.notificationsCard {
+  padding: 24px;
+}
+
+.notificationsCard h3 {
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+.notificationsList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.notifItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 12px;
+  background: var(--input-bg);
+  border-radius: var(--radius-md);
+  border-left: 3px solid transparent;
+}
+
+.notifItem.delay { border-left-color: var(--accent-amber); }
+.notifItem.info { border-left-color: var(--accent-blue); }
+.notifItem.promo { border-left-color: var(--accent-emerald); }
+.notifItem.diversion { border-left-color: var(--accent-crimson); }
+
+.notifContent {
+  flex: 1;
+}
+
+.notifContent strong {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  display: block;
+  margin-bottom: 3px;
+}
+
+.notifContent p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.notifTime {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  min-width: 70px;
+  text-align: right;
+}
+
+/* ─── Favorites ─── */
+.favoritesCard {
+  padding: 24px;
+}
+
+.favoritesCard h3 {
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+.favoritesList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.favoriteItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px;
+  background: var(--input-bg);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--glass-border);
+  transition: border-color var(--transition-fast);
+  cursor: pointer;
+}
+
+.favoriteItem:hover {
+  border-color: var(--card-border-accent);
+}
+
+.favBadge {
+  background: var(--sidebar-active);
+  color: var(--accent-blue);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.85rem;
+  min-width: 50px;
+  text-align: center;
+}
+
+.favInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.favRoute {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.favNext {
+  font-size: 0.8rem;
+  color: var(--accent-emerald);
+  font-weight: 500;
+}
+
+/* ─── Fare Calculator ─── */
+.fareCalcCard {
+  padding: 24px;
+}
+
+.fareCalcCard h3 {
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+.fareForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.fareSelect {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 0.9rem;
+  appearance: none;
+  cursor: pointer;
+}
+
+.fareSelect:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.fareResult {
+  padding: 14px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  border-radius: var(--radius-md);
+  text-align: center;
+  color: var(--accent-emerald);
+  font-size: 1.1rem;
+}
+
+.fareResult strong {
+  font-size: 1.3rem;
+}
+
+/* ─── Trips Card ─── */
+.tripsCard {
+  padding: 24px;
+}
+
+.tripsCard h3 {
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+}
+
+.tripList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tripList li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  background: var(--input-bg);
+  border-radius: var(--radius-md);
+}
+
+.tripList div {
+  display: flex;
+  flex-direction: column;
+  color: var(--text-primary);
+}
+
+.tripList div strong {
+  font-size: 0.9rem;
+}
+
+.tripDate {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 3px;
+}
+
+.tripFare {
+  font-weight: 700;
+  color: var(--accent-emerald);
+  font-size: 0.9rem;
+}
+
+/* ─── Schedule Card ─── */
+.scheduleCard {
+  padding: 24px;
+}
+
+.scheduleCard h3 {
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+}
+
+.scheduleList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.scheduleItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px;
+  background: var(--input-bg);
+  border-radius: var(--radius-md);
+}
+
+.schedBadge {
+  background: var(--sidebar-active);
+  color: var(--accent-blue);
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 0.82rem;
+  min-width: 45px;
+  text-align: center;
+}
+
+.schedInfo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 2px;
+}
+
+.schedTime {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.schedFrom {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.schedStatus {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 16px;
+}
+
+.onTime {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--accent-emerald);
+}
+
+.delayed {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--accent-amber);
+}
+
+/* ─── Map ─── */
+.mapWrapper {
+  flex: 1;
+  min-height: 400px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.mapTitle {
+  padding: 16px 20px;
+  background: var(--glass-bg);
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--glass-border);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  color: var(--text-secondary);
+}
