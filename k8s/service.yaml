@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: transport-backend-api
+spec:
+  selector:
+    app: transport-system
+    component: backend-api
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000
+  type: ClusterIP
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: transport-backend-ws
+spec:
+  selector:
+    app: transport-system
+    component: backend-ws
+  ports:
+    - protocol: TCP
+      port: 8001
+      targetPort: 8001
+  type: ClusterIP
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: transport-frontend-lb
+spec:
+  selector:
+    app: transport-system
+    component: frontend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
