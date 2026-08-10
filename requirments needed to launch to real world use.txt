@@ -1,0 +1,26 @@
+1. Simulation vs. Real-World Use
+The architecture we have designed is meant for 100% real-world production use.
+
+However, during our initial development and testing phases (running entirely on localhost), we will implement simulations to mimic real-world activity. For example, we will write scripts to simulate thousands of buses moving along Sri Lankan routes to test our WebSockets and AI models without needing actual physical buses.
+
+Once the system is stable, we will simply turn off the simulated data streams and connect the system to the real drivers and real passengers. The codebase remains exactly the same.
+
+2. Requirements for Real-World Launch in Sri Lanka
+To take this system out of your local computer and launch it to the public, you will need the following resources:
+
+🚌 Physical & Hardware Resources
+Driver Devices: Every bus driver needs a budget Android smartphone (or a device mounted on the dashboard) to run the Driver App. This device is what transmits the live GPS telemetry.
+Mobile Data Plans: Reliable 4G/LTE SIM cards for the driver devices to ensure constant WebSocket connections.
+Optional Telematics: If driver phones are unreliable, physical GPS trackers (e.g., OBD-II port trackers) installed in the buses that can send data directly to our RabbitMQ queue via GSM.
+☁️ Software & Cloud Infrastructure
+Cloud Provider Account: An account with AWS, Azure, or DigitalOcean to host the Kubernetes cluster, PostgreSQL databases, and Redis/RabbitMQ instances.
+App Store Accounts:
+Google Play Developer Account ($25 one-time fee) to publish the Android apps.
+Apple Developer Program ($99/year) to publish the iOS apps.
+Domain Name: A registered domain (e.g., srilankatransit.com) for the APIs and passenger web portal.
+📊 Master Data Requirements
+To make the system functional on Day 1, you will need to gather and import:
+
+Route & Stop Data: Exact GPS coordinates (Latitude/Longitude) of every bus stop and the polyline paths of every official bus route. If Sri Lanka has a standard GTFS (General Transit Feed Specification) dataset, we can import it directly.
+Fleet Roster: A database of bus registration numbers, capacities, and driver details (licenses, contact numbers).
+Historical Data (For AI): To train the XGBoost models for ETA prediction before launch, we ideally need historical travel times. If none exist, the AI will face a "cold start" and will need a few weeks of real-time operation to learn the traffic patterns of Sri Lanka autonomously.
