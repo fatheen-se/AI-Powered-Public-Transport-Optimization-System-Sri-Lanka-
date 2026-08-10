@@ -1,0 +1,92 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: transport-backend-api
+  labels:
+    app: transport-system
+    component: backend-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: transport-system
+      component: backend-api
+  template:
+    metadata:
+      labels:
+        app: transport-system
+        component: backend-api
+    spec:
+      containers:
+      - name: backend-api
+        image: your-docker-registry/transport-backend-api:latest
+        ports:
+        - containerPort: 8000
+        env:
+        - name: DB_HOST
+          value: "transport-db"
+        - name: REDIS_HOST
+          value: "transport-redis"
+        envFrom:
+        - secretRef:
+            name: transport-secrets
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: transport-backend-ws
+  labels:
+    app: transport-system
+    component: backend-ws
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: transport-system
+      component: backend-ws
+  template:
+    metadata:
+      labels:
+        app: transport-system
+        component: backend-ws
+    spec:
+      containers:
+      - name: backend-ws
+        image: your-docker-registry/transport-backend-ws:latest
+        ports:
+        - containerPort: 8001
+        env:
+        - name: DB_HOST
+          value: "transport-db"
+        - name: REDIS_HOST
+          value: "transport-redis"
+        envFrom:
+        - secretRef:
+            name: transport-secrets
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: transport-frontend
+  labels:
+    app: transport-system
+    component: frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: transport-system
+      component: frontend
+  template:
+    metadata:
+      labels:
+        app: transport-system
+        component: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: your-docker-registry/transport-frontend:latest
+        ports:
+        - containerPort: 80
