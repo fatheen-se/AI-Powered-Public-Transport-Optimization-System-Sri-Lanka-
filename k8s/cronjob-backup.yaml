@@ -1,0 +1,46 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: pg-backup
+  namespace: transport-prod
+spec:
+  # Run every night at Midnight (00:00)
+  schedule: "0 0 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: pg-dump
+            image: postgres:15-alpine
+            command:
+            - /bin/sh
+            - -c
+            - |
+              echo "Starting database backup..."
+              export PGPASSWORD=$DB_PASSWORD
+              FILENAME=/backups/db_backup_$(date +\%Y\%m\%d_\%H\%M\%S).sql
+              pg_dump -h $DB_HOST -U $DB_USER -d $DB_NAME -F c -f $FILENAME
+              echo "Backup complete: $FILENAME"
+              # In a real environment, you would add a command here to 
+              # sync $FILENAME to AWS S3 using aws-cli
+            env:
+            - name: DB_HOST
+              value: postgres-service
+            - name: DB_NAME
+              value: transport_db
+            - name: DB_USER
+              value: postgres
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: transport-secrets
+                  key: db-password
+            volumeMounts:
+            - name: backup-storage
+              mountPath: /backups
+          restartPolicy: OnFailure
+          volumes:
+          - name: backup-storage
+            persistentVolumeClaim:
+              claimName: backup-pvc
