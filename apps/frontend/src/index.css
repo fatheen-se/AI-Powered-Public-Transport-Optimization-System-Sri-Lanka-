@@ -211,3 +211,6 @@ body {
   font-size: 0.8rem;
   font-weight: 600;
 }
+
+/* UI Animation Enhancement Sequence 1 */
+.ui-anim-delay-1 { animation-delay: 10ms; transition: all 0.3s ease; }
