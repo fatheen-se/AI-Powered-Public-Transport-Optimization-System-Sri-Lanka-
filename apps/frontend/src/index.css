@@ -253,3 +253,6 @@ body {
 
 /* UI Animation Enhancement Sequence 14 */
 .ui-anim-delay-14 { animation-delay: 140ms; transition: all 0.3s ease; }
+
+/* UI Animation Enhancement Sequence 15 */
+.ui-anim-delay-15 { animation-delay: 150ms; transition: all 0.3s ease; }
