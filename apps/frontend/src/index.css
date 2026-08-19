@@ -280,3 +280,6 @@ body {
 
 /* UI Animation Enhancement Sequence 23 */
 .ui-anim-delay-23 { animation-delay: 230ms; transition: all 0.3s ease; }
+
+/* UI Animation Enhancement Sequence 24 */
+.ui-anim-delay-24 { animation-delay: 240ms; transition: all 0.3s ease; }
