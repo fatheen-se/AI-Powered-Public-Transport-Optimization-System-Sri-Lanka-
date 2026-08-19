@@ -363,3 +363,5 @@ body {
 .ui-anim-delay-50 { animation-delay: 500ms; transition: all 0.3s ease; }
 
 .ui-anim-delay-51 { transition-delay: 255ms; }
+
+.ui-anim-delay-52 { transition-delay: 260ms; }
